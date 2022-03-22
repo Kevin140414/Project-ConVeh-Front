@@ -174,6 +174,7 @@ formulario.addEventListener('submit', function(e) {
     }
 });
 
+/*
 const max = new Date().getFullYear(),
     min = max - 10;
 const selectAnios = document.getElementById('anio');
@@ -182,5 +183,20 @@ for (let i = max; i > min; i--) {
     option.value = i;
     option.innerHTML = i;
     selectAnios.appendChild(option);
+}*/
 
-}
+var data = new FormData();
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    alert(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://32g18jjfel.execute-api.us-east-2.amazonaws.com/prod/vehiculo-marca");
+xhr.setRequestHeader("authorizationToken", "ABCDEF");
+
+xhr.send(data);
+console.log(xhr.response);
