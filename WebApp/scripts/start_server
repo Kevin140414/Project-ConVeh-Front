@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo rm /var/www/html/* -R
+sudo service apache2 start
+
