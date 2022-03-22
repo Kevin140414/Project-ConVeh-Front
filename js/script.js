@@ -198,5 +198,5 @@ xhr.addEventListener("readystatechange", function() {
 xhr.open("GET", "https://32g18jjfel.execute-api.us-east-2.amazonaws.com/prod/vehiculo-marca");
 xhr.setRequestHeader("authorizationToken", "ABCDEF");
 
-xhr.send(data);
+xhr.send();
 console.log(xhr.response);
