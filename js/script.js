@@ -185,18 +185,16 @@ for (let i = max; i > min; i--) {
     selectAnios.appendChild(option);
 }*/
 
-var data = new FormData();
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+var headers = new Headers();
+headers.append("authorizationtoken", "ABCDEF");
 
-xhr.addEventListener("readystatechange", function() {
-  if(this.readyState === 4) {
-    alert(this.responseText);
-  }
-});
+var requestOptions = {
+  method: 'GET',
+  headers: headers,
+  mode: 'no-cors'
+};
 
-xhr.open("GET", "https://32g18jjfel.execute-api.us-east-2.amazonaws.com/prod/vehiculo-marca");
-xhr.setRequestHeader("authorizationToken", "ABCDEF");
-
-xhr.send();
-console.log(xhr.response);
+fetch("https://32g18jjfel.execute-api.us-east-2.amazonaws.com/prod/vehiculo-marca", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
